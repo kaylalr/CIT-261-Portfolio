@@ -183,3 +183,7 @@ function greet({greeting='Hello',name,age=18}) {
 }
 // Even though we set default parameters above, they can be overridden.
 console.log(greet({name: 'Lisa', age: 8}));
+
+//This is using JSON to take a string of data in JSON format to return a JavaScript object.
+const batman = '{"name": "Batman","real name": "Bruce Wayne","height": 74, "weight":210, "hero": true, "villian": false, "allies": ["Robin","Batgirl","Superman"]}';
+console.log(JSON.parse(batman));
