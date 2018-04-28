@@ -8,7 +8,7 @@ const superman = {
     villain: false,
     allies: ['Batman', 'Supergirl', 'Superboy'],
     fly() {
-        return 'Up, up and away!';
+        return `Up, up and away!`;
     }
 };
 
@@ -57,9 +57,8 @@ console.log(captainBritain);
 //const name = Symbol('name');
 //const supergirl = { [name]: 'Supergirl' };
 //console.log(supergirl[name]);
-
-// This doesn't work
-//console.logn(supergirl.name);
+// This doesn't work with the way I have it set up earlier.
+//console.log(supergirl.name);
 
 // This is the same thing as before, but assinging a realName.  I don't need to put 'const' in from of supergirl because we already defined supergirl earlier.
 //const realName = Symbol('real name');
@@ -68,18 +67,17 @@ console.log(captainBritain);
 
 const daredevil = { [name]: 'Daredevil', [realName]: 'Matt Murdoch' };
 
-// ***************** ask why this prints out what is does in the console
 // This way is faster.  It uses dot notation.
-console.log(superman.fly);
+console.log(superman.fly());
 
-// THis way works too, but it takes longer to type out.
-console.log(superman['fly']);
+// This way works too, but it takes longer to type out.
+console.log(superman['fly']());
 
 // This checks if there is a superman object that has a property called 'city.'  If it doesn't, it returns false.
 console.log('city' in superman);
 
-// ****************** ask about this?
-//superman.city !== undefined;
+// 
+console.log(superman.city !== undefined);
 
 // This does the same thing as "console.log(superman.fly)" and "console.log(superman['fly'])"
 console.log(superman.hasOwnProperty('city'));
@@ -98,20 +96,22 @@ for(const key in superman) {
     }
 }
 
-// This will just list what properties are in an object.  It wont list the values or strings in the properties.
+// This will just list what properties are in an object.  It wont list the values or strings in the properties.  This is the longer way, but it lists them differently than the shorter way.
 for(const key of Object.keys(superman)) {
     console.log(key);
 }
+// You can use this to list what properties are assigned to an object
+console.log(Object.keys(superman));
 
 // This will list all the values or strings of the properties in an object.  But it won't list what the names of the properties are.
 for(const value of Object.values(superman)) {
     console.log(value);
 }
 
-// ******************** This isn't working.  I don't really know what it's supposed to do.
-/*for(const [key,value] of Object.entries(superman)) {
-    console.log('${key}: ${value}');
-} */
+// This shows all the keys and their assigned values
+for(const [key,value] of Object.entries(superman)) {
+    console.log(`${key}: ${value}`);
+} 
 
 // This adds a new property and then prints it in the console.
 console.log(superman.city = 'Metropolis');
@@ -127,7 +127,7 @@ for(const key in superman) {
 console.log(superman['real name'] = 'Kal-El');
 console.log(superman);
 
-// ***************  I just took this out so I could ask my questions about the fly property from before.
+// I just took this out so I could ask my questions about the fly property from before.
 // This just deletes the fly property from superman.
 //console.log(delete superman.fly);
 //console.log(superman);
@@ -139,14 +139,47 @@ const jla = {
     wonderwoman: { realName: 'Diana Prince'},
     flash: { realName: 'Barry Allen'},
     aquaman: { realName: 'Arthur Curry'}
-}
+};
 
-// *****************  I took this out because it wasn't working.  I don't know why.
 // This is how you access nested object using dot notation.
-//console.log(jla.wonderWoman.realName);
+console.log(jla.wonderwoman.realName);
 
 // This is how you can access nested objects using bracket notation.  I prefer to not use this way.
 console.log(jla['flash']['realName']);
 
 // Wow!  You can mix notations.  This uses dot notation then bracket notation.  Cool!
 console.log(jla.aquaman['realName']);
+
+const thor = {
+    name: 'Thor'
+};
+
+// cloneThor now has the same properties as thor.  When we print out cloneThor, it gives the same thing as thor.  thor and cloneThor now point to the same place.  So changing one, changes the other.
+const cloneThor = thor;
+
+console.log(thor.name);
+console.log(cloneThor);
+
+// Because we change cloneThor to 'Clor', it also changed thor to 'Clor' because they are linked together.  
+cloneThor.name = 'Clor';
+console.log(thor.name);
+
+// So what I did before with thor and cloneThor doesn't work with the following because they are primitive values insead of objects.  Even though we change b to equal 2, and b equals a, it doesn't change the value of a.
+const a = 1;
+var b = a;
+b = 2;
+console.log(b);
+console.log(a);
+
+// This assignes objects as parameters for a function.
+function greet({greeting,name,age}) {
+    return `${greeting}! My name is ${name} and I am ${age} years old.`;
+}
+console.log(greet ({ greeting: "What's up dude", age: 10, name: "Bart"}));
+
+// Here, I am assigning default values for some of the parameters.
+function greet({greeting='Hello',name,age=18}) {
+    return `${greeting}! My name is ${name} and I am ${age} years old.`;
+}
+// Even though we set default parameters above, they can be overridden.
+console.log(greet({name: 'Lisa', age: 8}));
