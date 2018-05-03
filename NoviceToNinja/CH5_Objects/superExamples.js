@@ -187,3 +187,21 @@ console.log(greet({name: 'Lisa', age: 8}));
 //This is using JSON to take a string of data in JSON format to return a JavaScript object.
 const batman = '{"name": "Batman","real name": "Bruce Wayne","height": 74, "weight":210, "hero": true, "villian": false, "allies": ["Robin","Batgirl","Superman"]}';
 console.log(JSON.parse(batman));
+
+// ********************  Why would you want to do this?
+// The lasso method is ignored by the stringify().
+const wonderWoman = {
+    name: 'Wonder Woman',
+    'real name': 'Diana Prince',
+    height: 72,
+    weight: 165,
+    hero: true,
+    villain: false,
+    allies: ['Wonder Girl', 'Donna Troy', 'Superman'],
+    lasso: function (){
+        console.log('You will tell the truth!');
+    }
+}
+console.log(JSON.stringify(wonderWoman));
+// This will print each method on a different line.
+console.log(JSON.stringify(wonderWoman, null, " "));
