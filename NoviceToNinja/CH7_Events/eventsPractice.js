@@ -22,7 +22,6 @@ function doSomething(event) {
 }
 
 
-
 // Mouse Events
 
 
@@ -57,7 +56,6 @@ addEventListener('keydown', (event) => {
         console.log('Action canceled!');
     }
 });
-
 
 
 // Removing Event Listeners
