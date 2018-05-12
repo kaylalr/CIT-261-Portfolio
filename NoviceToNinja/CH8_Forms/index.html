@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <title>Search</title>
+</head>
+
+<body>
+    <form name='search' action='/search'>
+        <input name='searchInput'>
+        <button type='submit'>Search</button>
+    </form>
+    <form id='hero'>
+        <label for='heroName'>Name:
+            <input type='text' id='heroName' name='heroName' autofocus placeholder='Your Super Hero Name' maxlength=32>
+        </label>
+        <div>
+            <label for='realName'>Real Name:
+                <!--        Because we change the type to 'password' it won't show what you typed.  It will show little dots. SO COOL!!!-->
+                <input type='password' name='realName' id='realname'>
+                <button type='submit'>Submit</button>
+            </label>
+        </div>
+        <p>Super Poswers:</p>
+        <label for='flight'>Flight:
+            <input type='checkbox' id='flight' value='Flight' name='powers'>
+        </label>
+        <label for='strength'>Super Strength:
+            <input type='checkbox' id='strength' value='Strength' name='powers'>
+        </label>
+        <label for='speed'>Super Speed:
+            <input type='checkbox' id='speed' value='Super Speed' name='powers'>
+        </label>
+        <label for='energy'>Energy Blasts:
+            <input type='checkbos' id='energy' value='Energy Blasts' name='powers'>
+        </label>
+        <label for='telekinesis'>Telekinesis:
+            <input type='checkbox' id='telekinesis' value='Telekinesis' name='powers'>
+        </label>
+    </form>
+    <label for='donation-amount'>Enter amount to donate:
+<!--        The value field is initially set to 10.  It's pre-filled to reccommend the donation amount.-->
+        <input type='text' id='donation-amount' name='donationAmount' value='10'>
+    </label>
+    <div></div>
+    <script src='formsPractice.js'></script>
+</body>
+</html>
