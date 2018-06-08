@@ -47,5 +47,11 @@ function makeHero(event) {
     console.log(hero.name);
     hero.realName = formHero.realName.value;
     console.log(JSON.stringify((hero.realName)));
+    hero.powers = [];
+    for (let i=0; i < form.powers.lenght; i++) {
+        if (form.powers[i].checked) {
+            hero.powers.push(form.posers[i].value);
+        }
+    }
     return hero;
 }
