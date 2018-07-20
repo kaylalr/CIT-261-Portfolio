@@ -1,0 +1,18 @@
+#practiceDiv {
+    height: 200px;
+    width: 200px;
+    background-color: lightgray;
+/*
+    position: relative;
+    left: 0;
+*/
+    transition: all 2s;
+}
+#practiceDiv:hover {
+    height: 300px;
+    width: 300px;
+/*    best way to move it to the rigth:  */
+    transform: translatex(100px);
+/*    left: 400px;*/
+/*    margin-left: 600px;*/
+}

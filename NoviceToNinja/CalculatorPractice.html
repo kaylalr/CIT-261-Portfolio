@@ -1,0 +1,43 @@
+<!doctype>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>Calc</title>
+    <meta name="viewmort" content="width=divice-width,initial-scale=1">
+<!--    <link rel="stylesheet" href="calc.css">-->
+</head>
+
+<body>
+    <div>
+        <input type="number" id="input1">
+        <input type="number" id="input2">
+        <button id="plusButton" onclick="add()">+</button>
+        <button id="subButton" onclick="subtract()">-</button>
+        <button id="divideButton" onclick="divide()">/</button>
+        Result:
+        <span id="result"></span>
+    </div>
+    <script>
+        function add() {
+            let num1 = document.getElementById("input1").value;
+            let num2 = document.getElementById("input2").value;
+            document.getElementById("result").innerHTML = parseFloat(num1) + parseFloat(num2);
+        }
+        function subtract() {
+            let num1 = document.getElementById("input1").value;
+            let num2 = document.getElementById("input2").value;
+            document.getElementById("result").innerHTML = parseFloat(num1) - parseFloat(num2);
+        }
+        function divide() {
+            let num1 = document.getElementById("input1").value;
+            let num2 = document.getElementById("input2").value;
+            if (num2 != "0") {
+            document.getElementById("result").innerHTML = parseFloat(num1) / parseFloat(num2);
+            }
+            else {
+            document.getElementById("result").innerHTML = "Divided by zero";
+            }
+        }
+    </script>
+</body>
+</html>

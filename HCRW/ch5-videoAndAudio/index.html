@@ -1,0 +1,35 @@
+<!doctype>
+<html>
+    <head>
+        <title>Chapter 5</title>
+    </head>
+    <body>
+        <h1>Chapter 5 - Video and Audio</h1>
+<!--        <video src="pack_mules.mp4" width="375" height="280" controls autoplay loop></video>-->
+        
+<!--  The poster puts in an image as a teaser before the vieo is played -->
+<!--        <video src="pack_mules.mp4" width="375" height="280" controls poster="teaser.png" muted></video>-->
+        
+<!--    This allows you to add multiple video sources.  The browser will go down the list of sources and will choose the first one it recognizes.  The nice thing about this is that it won't load any of the other ones.  Only the one it recognizes.    -->
+        <video width="375" height="280" poster="teaser.png">
+            <source src="pack_mules.mp4" type='video/mp4'>
+            <source src="pack_mules.oggtheora.ogv" type='video/ogv'>
+<!--            This is how you use flash fallback to make sure that older browers that don't supports the source element are still able to play the video.-->
+            <!-- fallback to flash:  -->
+            <!-- The width and height should be the smae as in the video -->
+            <object width="375" height="280" type="application/x-shockwave-flash" data="mediaplayer-5.5/player.swf">
+                <param name="movie" value="mediaplayer-5.5/player.swf">
+                <param name="allowFullScreen" value="true">
+                <param name="wmode" value="transparent">
+                <param name="flashvars" value="controlbar=over&amp;image=images/teaser.png&amp;;file=pack_mules.mp4">
+                <!-- fallback image  -->
+                <img src="teaser.png" width="375" height="280" alt="fallback image" title="No video playback capabilites">
+            </object>
+        </video>
+        <div id="controls" class="hidden">
+            <a id="playPause">Play/Pause</a>
+            <span id="timer">00:00</span>
+            <a id="muteUnmute">Mute/Unmute</a>
+        </div>
+    </body>
+</html>
